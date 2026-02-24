@@ -17,7 +17,7 @@ This repository provides the official PyTorch implementation for CC-VQA.
 ## 🔥 What's New
 
 - **(2026.2.20)** The dataset setting can be found in echosight (https://github.com/Go2Heart/EchoSight)
-- **(2025.2.20)** 🎉 Our paper (CC-VQA) is accepted as **CVPR 2026**!
+- **(2026.2.20)** 🎉 Our paper (CC-VQA) is accepted as **CVPR 2026**!
 
 ## 🚀 Get Started
 
