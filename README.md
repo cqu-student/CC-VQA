@@ -8,7 +8,6 @@ This repository provides the official PyTorch implementation for CC-VQA.
 
 ## 🪵 TODO List
 
-- 🔄 Release core test implementation
 - 🔄 Complete README documentation
 - 🔄 Release core train implementation
 - 🔄 Add configuration examples
