@@ -72,6 +72,25 @@ Our method achieves state-of-the-art performance of **78.8%** on OK-VQA, surpass
 
 Standard retrieval augmentation boosts Qwen2.5-VL-7B performance significantly. **CC-VQA** achieves further improvements demonstrating effective knowledge conflict resolution.
 
+| Method | Model | Gen. FT | Retriever | E-VQA (Single-Hop) | E-VQA (All) | InfoSeek (Unseen-Q) | InfoSeek (Unseen-E) | InfoSeek (All) |
+| :--- | :--- | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
+| *Zero-shot MLLMs* | | | | | | | | |
+| BLIP-2 | Flan-T5 XL | - | - | 12.6 | 12.4 | 12.7 | 12.3 | 12.5 |
+| InstructBLIP | Flan-T5 XL | - | - | 11.9 | 12.0 | 8.9 | 7.4 | 8.1 |
+| LLaVA-v1.5 | Vicuna-7B | - | - | 16.3 | 16.9 | 9.6 | 9.4 | 9.5 |
+| GPT-4V | - | - | - | 26.9 | 28.1 | 15.0 | 14.3 | 14.6 |
+| Qwen2.5-VL-7B | - | - | - | 21.7 | 20.3 | 22.8 | 24.1 | 23.7 |
+| *Retrieval-Augmented* | | | | | | | | |
+| DPR V+T | Multi-passage BERT | - | CLIP ViT-B/32 | 29.1 | - | - | - | 12.4 |
+| RORA-VLM | Vicuna-7B | ✅ | CLIP+Google | - | 20.3 | 25.1 | 27.3 | - |
+| EchoSight | Mistral/LLaMA-3 | ❌ | EVA-CLIP-8B | 26.4 | 24.9 | 30.0 | 30.7 | 30.4 |
+| Wiki-LLaVA | Vicuna-7B | ✅ | Contriever | 17.7 | 20.3 | 30.1 | 27.8 | 28.9 |
+| ReflectiVA | LLaMA-3.1-8B | ✅ | EVA-CLIP-8B | 28.0 | 29.2 | 40.4 | 39.8 | 40.1 |
+| MMKB-RAG | Qwen2-7B | ❌ | EVA-CLIP-8B | 39.7 | 35.9 | 36.4 | 36.3 | 36.4 |
+| Wiki-PRF | Qwen2.5-VL-8B | ✅ | EVA-CLIP-8B | 37.1 | 36.0 | 43.3 | 42.7 | 42.8 |
+| Qwen2.5-VL-7B (Base) | Qwen2.5-VL-7B | ❌ | EVA-CLIP-8B | 36.7 | 31.2 | 41.9 | 41.3 | 41.8 |
+| **CC-VQA (Ours)** | **Qwen2.5-VL-7B** | **❌** | **EVA-CLIP-8B** | **41.4** | **36.1** | **44.7** | **46.1** | **45.1** |
+
 - **E-VQA**: Improved by **+4.7%** over strong baselines.
 - **InfoSeek**: Improved by **+3.3%** over strong baselines.
 - **Oracle Analysis**: Achieves **66.5%** accuracy on InfoSeek when provided with ground-truth articles, showing superior information utilization.
