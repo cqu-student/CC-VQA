@@ -93,7 +93,6 @@ Standard retrieval augmentation boosts Qwen2.5-VL-7B performance significantly. 
 
 - **E-VQA**: Improved by **+4.7%** over strong baselines.
 - **InfoSeek**: Improved by **+3.3%** over strong baselines.
-- **Oracle Analysis**: Achieves **66.5%** accuracy on InfoSeek when provided with ground-truth articles, showing superior information utilization.
 
 ---
 
