@@ -1,4 +1,4 @@
-# CC-VQA-Contextual-Conflict-aware-Visual-Question-Answering
+# CC-VQA: Conflict- and Correlation-Aware Method for Mitigating Knowledge Conflict in Knowledge-Based Visual Question Answering
 [![arXiv](https://img.shields.io/badge/arXiv-2510.XXXXX-b31b1b.svg)](https://arxiv.org/abs/2510.XXXXX)
 [![CVPR 2026](https://img.shields.io/badge/CVPR%202026-Paper-blue)](https://cvpr.thecvf.com/)
 [![Python](https://img.shields.io/badge/Python-3.10+-blue)](https://www.python.org/downloads/)
