@@ -3,7 +3,6 @@
 [![CVPR 2026](https://img.shields.io/badge/CVPR%202026-Paper-blue)](https://cvpr.thecvf.com/)
 [![Python](https://img.shields.io/badge/Python-3.10+-blue)](https://www.python.org/downloads/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-orange)](https://pytorch.org/)
-[![Hugging Face](https://img.shields.io/badge/Hugging%20Face-Model-orange?logo=huggingface&logoColor=white)](https://huggingface.co/)
 
 This repository provides the official implementation for **CC-VQA**, a novel **training-free**, conflict- and correlation-aware method for Knowledge-Based Visual Question Answering (KB-VQA). CC-VQA addresses the critical challenge of knowledge conflicts between parametric knowledge in VLMs and retrieved external information.
 
