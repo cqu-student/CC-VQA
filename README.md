@@ -17,7 +17,7 @@ This repository provides the official implementation for **CC-VQA**, a novel **t
 
 - **(2026.02.20)** Project initialized.
 - **(2026.02.20)** 📄 Paper accepted by CVPR 2026.
-- **(2026.02.20)** Our previous work, which is accepeted by Neurlps 2025, can be vie by click this [link](https://github.com/cqu-student/Wiki-PRF/tree/main).
+- **(2026.02.20)** Our previous work, accepted to NeurIPS 2025, is available at this [link](https://github.com/cqu-student/Wiki-PRF/tree/main).
 
 # 🧠 CC-VQA: A Training-Free Conflict-Aware Framework for KB-VQA
 
