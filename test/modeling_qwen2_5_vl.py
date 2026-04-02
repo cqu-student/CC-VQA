@@ -24,6 +24,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+"""
+The core change is the get_rope_index, becasue we need the similarity to change the index.
+"""
+
 import math
 from dataclasses import dataclass
 from typing import Any, Dict, List, Optional, Tuple, Union
@@ -42,6 +46,7 @@ from ...modeling_rope_utils import ROPE_INIT_FUNCTIONS, dynamic_rope_update
 from ...modeling_utils import PreTrainedModel
 from ...utils import auto_docstring, can_return_tuple, is_torch_flex_attn_available, logging
 from .configuration_qwen2_5_vl import Qwen2_5_VLConfig, Qwen2_5_VLTextConfig, Qwen2_5_VLVisionConfig
+
 
 
 if is_flash_attn_available():
