@@ -16,7 +16,7 @@ This repository provides the official implementation for **CC-VQA**, a novel **t
 ## 🔥 What's New
 
 - **(2026.04.01)** We released the core implementation, the modeling_qwen2_5vl is a py file in the transformers library. The test file is the dual-channel decoding.
-- **(2026.02.20)** Project initialized.
+- **(2026.02.20)** Project initialized, it's implementation is based on the echosight.
 - **(2026.02.20)** 📄 Paper accepted by CVPR 2026.
 - **(2026.02.20)** Our previous work, accepted to NeurIPS 2025, is available at this [link](https://github.com/cqu-student/Wiki-PRF/tree/main).
 
