@@ -120,3 +120,4 @@ Replace the modeling_qwen2_5_VL.py to the file in the transformers library. Then
 bash test/test.sh
 ```
 
+To better help you understand what we have done, we did add the core code rather than full origin echosight file, if you are a new researcher focus on this area, you can see the echosight (has been open-sourced) first. Good Luck! 
