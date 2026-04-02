@@ -120,3 +120,5 @@ bash test/test.sh
 ```
 
 To better help you understand what we have done, we did add the core code rather than full origin echosight file, if you are a new researcher focus on this area, you can see the echosight (has been open-sourced) first. Good Luck! 
+
+What's more, our evulation on infoseek is full follow the echosight, the difference on evqa is just use llm to help jduge.
