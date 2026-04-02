@@ -109,4 +109,14 @@ pip install -r requirements.txt
 
 The echosight, which we used to conduct the retrieveal, can be in an dependent conda environment.
 
-Then use the 
+Then use the prepare_test_similarity.sh to preprare the VCCR data.
+```bash
+bash test/prepare_test_similarity.sh
+```
+
+Replace the modeling_qwen2_5_VL.py to the file in the transformers library. Then run the dual way decoding:
+
+```bash
+bash test/test.sh
+```
+
