@@ -1,4 +1,4 @@
-accelerate launch --num_processes 8 --mixed_precision bf16 test_retrieval_accelerate_nj_coco_with_similarity.py   \
+accelerate launch --num_processes 8 --mixed_precision bf16 test.py   \
   --fusion_mode dsab \
   --dsab_stage pre_warpers \
   --dsab_mix_space logprob \
