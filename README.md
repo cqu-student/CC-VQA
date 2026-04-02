@@ -8,7 +8,7 @@ This repository provides the official implementation for **CC-VQA**, a novel **t
 
 ## 🪵 TODO List
 
-- [ ] Release core implementation
+- [✅] Release core implementation
 - [ ] Complete README documentation
 - [ ] Release evaluation scripts
 - [ ] Add detailed Quick Start guide
