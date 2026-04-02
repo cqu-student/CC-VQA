@@ -104,5 +104,9 @@ Standard retrieval augmentation boosts Qwen2.5-VL-7B performance significantly. 
 ```bash
 git clone https://github.com/cqu-student/CC-VQA.git
 cd CC-VQA
-# pip install -r requirements.txt
+pip install -r requirements.txt
 ```
+
+The echosight, which we used to conduct the retrieveal, can be in an dependent conda environment.
+
+Then use the 
