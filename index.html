@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CC-VQA is a training-free, conflict- and correlation-aware framework for knowledge-based visual question answering.">
+  <meta name="theme-color" content="#10284d">
+  <meta property="og:title" content="CC-VQA — CVPR 2026">
+  <meta property="og:description" content="Mitigating knowledge conflict in knowledge-based visual question answering.">
+  <meta property="og:image" content="img/fig_overview_v3.jpg">
+  <title>CC-VQA — CVPR 2026</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="#top"><span>CC</span>VQA</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation"><i></i><i></i><i></i></button>
+      <div class="nav-links" id="nav-links">
+        <a href="#motivation">Motivation</a>
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#citation">Citation</a>
+        <a href="https://github.com/cqu-student/CC-VQA" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero shell" id="top">
+      <div class="venue"><b>CVPR 2026</b><span>Training-Free KB-VQA</span></div>
+      <h1><em>CC-VQA:</em> Conflict- and Correlation-Aware Method for Mitigating Knowledge Conflict in Knowledge-Based Visual Question Answering</h1>
+      <p class="lead">See the evidence. Resolve the conflict. Answer with confidence.</p>
+      <div class="authors">
+        <a href="https://cqu-student.github.io" target="_blank" rel="noopener">Yuyang Hong<sup>1,2,3,*</sup></a>
+        <span>Jiaqi Gu<sup>3,*</sup></span><span>Yujin Lou<sup>3</sup></span><span>Lubin Fan<sup>3,†</sup></span>
+        <span>Qi Yang<sup>1,2</sup></span><span>Ying Wang<sup>2,†</sup></span><span>Kun Ding<sup>2</sup></span>
+        <span>Yue Wu<sup>3</sup></span><span>Shiming Xiang<sup>1,2</sup></span><span>Jieping Ye<sup>3</sup></span>
+      </div>
+      <div class="affiliations">
+        <span><sup>1</sup> University of Chinese Academy of Sciences</span>
+        <span><sup>2</sup> Institute of Automation, Chinese Academy of Sciences</span>
+        <span><sup>3</sup> Alibaba Cloud Computing</span>
+      </div>
+      <p class="author-note"><sup>*</sup> Equal contribution &nbsp; <sup>†</sup> Corresponding authors</p>
+      <div class="actions">
+        <a class="button" href="https://arxiv.org/abs/2602.23952" target="_blank" rel="noopener">▤ Paper</a>
+        <a class="button primary" href="https://github.com/cqu-student/CC-VQA" target="_blank" rel="noopener">⌘ Code</a>
+      </div>
+
+      <figure class="overview-figure">
+        <div class="figure-label">Framework Overview</div>
+        <img src="img/fig_overview_v3.jpg" alt="Overview of CC-VQA with visual-centric contextual conflict reasoning and correlation-guided encoding and decoding">
+        <figcaption>CC-VQA externalizes parametric knowledge, reasons over visually grounded conflicts, and prioritizes correlated evidence during encoding and decoding.</figcaption>
+      </figure>
+    </section>
+
+    <section class="score-strip" aria-label="Key results">
+      <div class="shell scores">
+        <article><strong>78.8</strong><span>OK-VQA</span><small>state-of-the-art accuracy</small></article>
+        <article><strong>+4.7</strong><span>E-VQA</span><small>absolute improvement</small></article>
+        <article><strong>+3.3</strong><span>InfoSeek</span><small>absolute improvement</small></article>
+        <article><strong>0</strong><span>Training</span><small>plug-and-play generation</small></article>
+      </div>
+    </section>
+
+    <section class="section shell" id="motivation">
+      <header class="section-head reveal"><span>01 / Motivation</span><h2>Retrieval helps—until knowledge disagrees.</h2></header>
+      <div class="problem-grid reveal">
+        <div class="problem-copy">
+          <p class="large">VLMs carry static parametric knowledge. RAG supplies dynamic external evidence. When they conflict, models may ignore useful retrieval—or trust misleading context.</p>
+          <p>Existing conflict mitigation methods are mainly inherited from language-only settings. They overlook the image as decisive evidence and process long retrieved contexts too coarsely.</p>
+          <div class="insights">
+            <article><b>Visual grounding</b><p>Visual attributes can validate competing knowledge claims and expose the source of conflict.</p></article>
+            <article><b>Fine-grained relevance</b><p>Retrieved contexts average 107 sentences, while 90% of correct answers lie in the top 25% most correlated sentences.</p></article>
+          </div>
+        </div>
+        <figure class="problem-figure">
+          <img src="img/fig_knowledge_conflict_v2.jpg" alt="A KB-VQA example where retrieved context conflicts with model parametric knowledge">
+          <figcaption>External knowledge can improve KB-VQA, but unreliable retrieval introduces new errors.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section method-section" id="method">
+      <div class="shell">
+        <header class="section-head reveal"><span>02 / Method</span><h2>Conflict-aware reasoning, correlation-aware generation.</h2><p>Two complementary components guide the model from conflicting knowledge to a visually grounded answer.</p></header>
+        <div class="method-grid reveal">
+          <article class="method-card visual">
+            <div class="number">01</div><div class="method-tag">VCCR</div>
+            <h3>Visual-Centric Contextual Conflict Reasoning</h3>
+            <p>Externalize the model’s parametric knowledge, extract visual rationales for every context, and summarize the visual features that distinguish conflicting claims.</p>
+            <ul><li>Parametric context generation</li><li>Visual rationale extraction</li><li>Visual-centric conflict analysis</li></ul>
+          </article>
+          <article class="method-card correlation">
+            <div class="number">02</div><div class="method-tag">CPE + CAD</div>
+            <h3>Correlation-Guided Encoding and Decoding</h3>
+            <p>Estimate sentence-level image-question relevance, compress positional space for low-correlation statements, and adapt token sampling using correlation-weighted conflict scores.</p>
+            <ul><li>Fine-grained correlation</li><li>Correlation-aware positional encoding</li><li>Correlation-enhanced adaptive decoding</li></ul>
+          </article>
+        </div>
+        <figure class="detail-figure reveal">
+          <img src="img/fig_visual-centric_v1.jpg" alt="Detailed example of visual-centric contextual conflict reasoning">
+          <figcaption>Visual rationales turn competing textual contexts into explicit, image-grounded conflict cues.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section shell evidence-section">
+      <header class="section-head reveal"><span>03 / Key Observation</span><h2>Most context is not equally useful.</h2></header>
+      <div class="evidence-grid reveal">
+        <figure><img src="img/fig_observation_2_v0.jpg" alt="Distribution of sentence similarity and answer-containing sentence statistics"><figcaption>Answer-bearing statements concentrate at higher correlation scores.</figcaption></figure>
+        <div class="evidence-copy">
+          <div class="big-stat"><strong>107</strong><span>sentences per retrieved context, on average</span></div>
+          <div class="big-stat accent"><strong>90%</strong><span>of correct answers occur within the top 25% most similar sentences</span></div>
+          <p>CC-VQA keeps all evidence available while changing how strongly each statement participates in generation.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section results-section" id="results">
+      <div class="shell">
+        <header class="section-head reveal"><span>04 / Results</span><h2>State-of-the-art, without generator fine-tuning.</h2></header>
+        <div class="benchmark-grid reveal">
+          <article class="benchmark featured"><span>OK-VQA</span><strong>78.8</strong><p>Surpasses both training-free methods and the RL-trained Wiki-PRF.</p></article>
+          <article class="benchmark"><span>E-VQA · Single-Hop</span><strong>41.4</strong><p>+4.7 points over the matched Qwen2.5-VL retrieval baseline.</p></article>
+          <article class="benchmark"><span>InfoSeek · All</span><strong>45.1</strong><p>+3.3 points over the matched retrieval baseline.</p></article>
+        </div>
+        <div class="conflict-card reveal">
+          <div class="conflict-copy"><span class="mini-label">10K InfoSeek analysis</span><h3>Retrieval becomes more helpful—and less harmful.</h3><p>CC-VQA reconciles external evidence with parametric knowledge instead of blindly preferring either source.</p></div>
+          <div class="ratio-pair">
+            <div><span>Helpful ratio</span><p><del>16.82%</del><b>18.63%</b></p><i class="up">↑ 1.81</i></div>
+            <div><span>Harmful ratio</span><p><del>10.53%</del><b>7.69%</b></p><i class="down">↓ 2.84</i></div>
+          </div>
+        </div>
+        <div class="ablation reveal">
+          <div><span>Vanilla RAG</span><i style="--w: 85%"></i><b>41.4</b></div>
+          <div><span>+ VCCR</span><i style="--w: 91%"></i><b>43.3</b></div>
+          <div><span>+ CAD</span><i style="--w: 95%"></i><b>44.1</b></div>
+          <div class="best"><span>+ CPE</span><i style="--w: 100%"></i><b>45.0</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell case-section">
+      <header class="section-head reveal"><span>05 / Case Study</span><h2>Grounding conflict resolution in what the model sees.</h2></header>
+      <figure class="case-figure reveal"><img src="img/fig_case_vccr_v1.jpg" alt="Case study showing context generation, rationale extraction, and conflict analysis in CC-VQA"><figcaption>CC-VQA identifies visual details shared across internal and external knowledge, then turns them into explicit guidance for answering.</figcaption></figure>
+    </section>
+
+    <section class="section citation-section" id="citation">
+      <div class="shell">
+        <header class="section-head reveal"><span>06 / Citation</span><h2>Cite CC-VQA.</h2></header>
+        <div class="citation-box reveal">
+          <pre><code id="bibtex">@inproceedings{hong2026ccvqa,
+  title     = {CC-VQA: Conflict- and Correlation-Aware Method for Mitigating Knowledge Conflict in Knowledge-Based Visual Question Answering},
+  author    = {Hong, Yuyang and Gu, Jiaqi and Lou, Yujin and Fan, Lubin and Yang, Qi and Wang, Ying and Ding, Kun and Wu, Yue and Xiang, Shiming and Ye, Jieping},
+  booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year      = {2026}
+}</code></pre>
+          <button class="copy-button" type="button" data-copy-target="bibtex">Copy BibTeX</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="shell footer-inner"><div><strong>CC-VQA</strong><span>Conflict- and Correlation-Aware KB-VQA</span></div><p>CVPR 2026 · <a href="https://cqu-student.github.io" target="_blank" rel="noopener">Yuyang Hong's Homepage</a></p></div></footer>
+</body>
+</html>
